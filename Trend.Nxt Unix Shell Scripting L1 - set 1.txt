@@ -1,0 +1,179 @@
+First Program - Hello World
+Solution.
+	echo Helloworld
+	
+Script should print Hello With the name given as input	
+Solution. 
+"read -p ""May I know your name please? "" name
+echo ""Hello $name""
+echo """""
+
+Setting Execution Permissions	
+Solution.
+"chmod g+o
+chmod g-wx
+chmod o+w
+chmod o-rwx
+chmod ogu+rwx"
+	
+List the processes and redirect to a file	
+Solution.
+"echo Helloworld > process
+cat process
+echo Hellowold welcome >> process
+cat process
+./command file1 file2 file3> process > 2&1
+cat process"
+
+"Script should execute a command which creates an
+ error. The error statement should be redirected the console"
+Solution.
+ dir file.xxx 1> output.msg 2>&1
+ 
+"Script to execute a system command and the output
+ to be directed to a new file and execute another
+ system command and update the same file (append)"
+Solution.
+ dir file.xxx > output.msg 2> output.err
+ 
+ 
+"List the files recursively and pipe it, grep for files 
+starting with name ""test"""	
+Solution.
+ls | grep test* xargs -i rm "{}" && ./script.sh
+
+
+"Summation of two real numbers – bc (basic calculator)
+ command"	
+ Solution.
+ "# !/bin/bash 
+
+# Take user Input 
+echo ""Enter Two numbers : ""
+read a 
+read b 
+
+# Input type of operation 
+echo ""Enter Choice :""
+echo ""1. Addition""
+echo ""2. Subtraction""
+echo ""3. Multiplication""
+echo ""4. Division""
+read ch 
+
+# Switch Case to perform 
+# calulator operations 
+case $ch in
+1)res=`echo $a + $b | bc` 
+;; 
+2)res=`echo $a - $b | bc` 
+;; 
+3)res=`echo $a \* $b | bc` 
+;; 
+4)res=`echo ""scale=2; $a / $b"" | bc` 
+;; 
+esac
+echo ""Result : $res""
+
+
+
+If then, Multiple if	
+Solution.
+"read -p ""Enter numeric value: "" myvar
+ 
+if [ $myvar -gt 10 ]
+then
+    echo ""Value is greater than 10""
+else
+    echo ""value is not greater than 10""
+fi
+if [ $myvar -lt 10 ]
+then
+    echo ""Value is lesser than 10""
+else
+    echo ""value is not lesser than 10""
+fi"
+
+
+
+While Loop	
+Solution.
+"#!/bin/sh
+
+a=0
+
+while [ $a -lt 10 ]
+do
+   echo $a
+   a=`expr $a + 1`
+done"
+
+
+
+"Operation (summation, subtraction, multiplication
+ and division) of two numbers – Switch"	
+ Solution.
+ "# !/bin/bash 
+
+# Take user Input 
+echo ""Enter Two numbers : ""
+read a 
+read b 
+
+# Input type of operation 
+echo ""Enter Choice :""
+echo ""1. Addition""
+echo ""2. Subtraction""
+echo ""3. Multiplication""
+echo ""4. Division""
+read ch 
+
+# Switch Case to perform 
+# calulator operations 
+case $ch in
+1)res=`echo $a + $b | bc` 
+;; 
+2)res=`echo $a - $b | bc` 
+;; 
+3)res=`echo $a \* $b | bc` 
+;; 
+4)res=`echo ""scale=2; $a / $b"" | bc` 
+;; 
+esac
+echo ""Result : $res""
+"
+
+
+
+"Sort the given five numbers in ascending
+ order (using array) – Do loop and array"	
+ Solution.
+ "# Sorting the array in Bash 
+# using Bubble sort 
+
+# Static input of Array 
+arr = (10 8 20 100 12) 
+
+echo ""Array in original order""
+echo ${arr[*]} 
+
+# Performing Bubble sort 
+for ((i = 0; i<5; i++)) 
+do
+	
+	for((j = i; j<5-i-1; j++)) 
+	do
+	
+		if ((${arr[j]} > ${arr[$((j+1))]})) 
+		then
+			# swap 
+			temp = ${arr[$j]} 
+			arr[$j] = ${arr[$((j+1))]} 
+			arr[$((j+1))] = $temp 
+		fi
+	done
+done
+
+echo ""Array in sorted order :""
+echo ${arr[*]} 
+"
